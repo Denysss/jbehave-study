@@ -1,0 +1,67 @@
+<story path="com/epam/qa/automation/stories/my.story" title="Gmail Login story">
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">communicate effectively to the business some functionality</inOrderTo>
+  <asA keyword="As a">development team</asA>
+  <iWantTo keyword="I want to">use Behaviour-Driven Development</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Login to Gmail with empty email">
+<examples keyword="Examples:">
+<step>Given Login page is opened</step>
+<step>When Set empty email to email field</step>
+<step>And Submit Next button</step>
+<step>Then Warning message should be present on the page</step>
+<parameters>
+<names><name>email</name><name>message</name></names>
+<values><value></value><value>Please enter your email.</value></values>
+</parameters>
+
+<example keyword="Example:">{email=, message=Please enter your email.}</example>
+<step outcome="failed" keyword="FAILED">Given Login page is opened<failure>java.lang.NullPointerException</failure></step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">When Set empty <parameter>email</parameter> to <parameter>email</parameter> field</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">And Submit Next button</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Then Warning <parameter>message</parameter> should be present on the page</step>
+</examples>
+</scenario>
+<scenario keyword="Scenario:" title="Login to Gmail with not valid email">
+<examples keyword="Examples:">
+<step>Given Login page is opened</step>
+<step>When Set not valid email to email field</step>
+<step>And Submit Next button</step>
+<step>Then Warning message should be present on the page</step>
+<parameters>
+<names><name>email</name><name>message</name></names>
+<values><value>@#$</value><value>Please enter a valid email address.</value></values>
+</parameters>
+
+<example keyword="Example:">{email=@#$, message=Please enter a valid email address.}</example>
+<step outcome="failed" keyword="FAILED">Given Login page is opened<failure>java.lang.NullPointerException</failure></step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">When Set not valid <parameter>email</parameter> to <parameter>email</parameter> field</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">And Submit Next button</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Then Warning <parameter>message</parameter> should be present on the page</step>
+</examples>
+</scenario>
+<scenario keyword="Scenario:" title="Login to Gmail">
+<examples keyword="Examples:">
+<step>Given Login page is opened</step>
+<step>When Set correct email to email field</step>
+<step>And Submit Next button</step>
+<step>Then The Email should be present on the page</step>
+<step>When Set correct password to password field</step>
+<step>And Sunmit SignIn button</step>
+<step>Then Title should include the email</step>
+<parameters>
+<names><name>email</name><name>password</name></names>
+<values><value>email@gmail.com</value><value>password</value></values>
+</parameters>
+
+<example keyword="Example:">{email=email@gmail.com, password=password}</example>
+<step outcome="failed" keyword="FAILED">Given Login page is opened<failure>java.lang.NullPointerException</failure></step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">When Set correct <parameter>email</parameter> to <parameter>email</parameter> field</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">And Submit Next button</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Then The <parameter>Email</parameter> should be present on the page</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">When Set correct <parameter>password</parameter> to <parameter>password</parameter> field</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">And Sunmit SignIn button</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Then Title should include the <parameter>email</parameter></step>
+</examples>
+</scenario>
+</story>
