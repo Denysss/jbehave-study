@@ -5,21 +5,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pages.GmailLoginPage;
 
-import org.junit.After;
-import org.junit.Before;
+import org.jbehave.core.annotations.BeforeScenario;
+import org.jbehave.core.annotations.ScenarioType;
+import org.jbehave.core.annotations.AfterScenario;
 
 public abstract class TestTemplate {
 
 	protected static WebDriver driver;
 	protected static GmailLoginPage logInPage;
-	
-	@Before
+
+	@BeforeScenario (uponType=ScenarioType.EXAMPLE)
 	public void beforeTest () {
 		driver = new FirefoxDriver();
-		logInPage = new GmailLoginPage(driver);
 	}
-		
-	@After
+
+	@AfterScenario(uponType=ScenarioType.EXAMPLE)
 	public void afterTest () {
 		driver.quit();
 	}

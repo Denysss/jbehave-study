@@ -11,7 +11,6 @@ public class GmailLoginPage extends PageTemplate {
 	
 	private By edtEmail = By.id("Email");
 	private By btnNext = By.id("next");
-	//private By msgAlert = By.className("alert"); // it was for Chrome
 	private By msgError = By.className("error-msg");
 	private By edtPassward = By.id("Passwd");
 	private By msgEmailBeforeTypePassword = By.id("email-display");

@@ -2,7 +2,6 @@ package com.epam.qa.automation;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Properties;
 
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
@@ -13,9 +12,7 @@ import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.model.ExamplesTableFactory;
-import org.jbehave.core.parsers.RegexPrefixCapturingPatternParser;
 import org.jbehave.core.parsers.RegexStoryParser;
-import org.jbehave.core.reporters.CrossReference;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
@@ -61,7 +58,7 @@ public class MyStories extends JUnitStories {
             .useStoryReporterBuilder(new StoryReporterBuilder()
                 .withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass))
                 .withDefaultFormats()
-                .withFormats(CONSOLE, TXT, HTML, XML))
+                .withFormats(CONSOLE, HTML, TXT, XML))
             .useParameterConverters(parameterConverters);
     }
 
@@ -71,7 +68,7 @@ public class MyStories extends JUnitStories {
     }
 
     @Override
-    protected List<String> storyPaths() {
+    public List<String> storyPaths() {
         return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/*.story", "**/excluded*.story");
                 
     }

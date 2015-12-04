@@ -35,22 +35,22 @@ public class MySteps extends TestTemplate {
 	
 	@When (value = "Set correct $password to password field")
 	public void setPassword (String password) {
-		logInPage.setPassward(password);
+		loginPage.setPassward(password);
 	}
 	
 	@When (value = "Sunmit SignIn button")
 	public void submitSignIn () {
-		mainPage = logInPage.submitSignIn();
+		mainPage = loginPage.submitSignIn();
 	}
 	
 	@Then(value = "Warning $message should be present on the page")
 	public void warningNotValidEmailShouldBePresentOnThePage (String message) {
-		assertEquals(message, logInPage.getErrorMessage());
+		assertEquals(message, loginPage.getErrorMessage());
 	}
 	
 	@Then(value = "The $email should be present on the page")
 	public void theEmailShouldBePresentOnThePage (String email) {
-		assertEquals(email, logInPage.getEmailBeforeTypePassword());
+		assertEquals(email, loginPage.getEmailBeforeTypePassword());
 	}
 	
 	@Then(value = "Title should include the $email")
